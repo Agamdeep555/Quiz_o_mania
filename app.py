@@ -5,7 +5,10 @@ from export import export_to_doc
 from utils import extract_text_from_pdf
 
 def display_mcq(mcqs):
-    st.title("Multiple Choice Questions")
+    st.markdown("## 🧠 Quiz O Mania")
+    st.markdown("### Test your knowledge. Learn smarter. 🚀")
+    st.divider()
+    
 
     # Ensure correct initialization of answer tracking
     if 'user_answers' not in st.session_state or len(st.session_state.user_answers) != len(mcqs):
