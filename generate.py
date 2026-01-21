@@ -167,14 +167,14 @@ from langchain_core.prompts import PromptTemplate
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 
-groq_api_key = st.secrets["GROQ_API_KEY"]
+groq_api_key = "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"
 load_dotenv()
 
 # Initialize Groq LLM
 llm = ChatGroq(
     temperature=0.7,
     groq_api_key=groq_api_key,
-    model_name= st.secrets["GROQ_MODEL"]
+    model_name= "llama-3.1-8b-instant"
 )
 
 # Prompt Template
