@@ -83,6 +83,17 @@ def display_mcq(mcqs):
             mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         )
 
+def footer():
+    """Display footer with copyright message"""
+    st.markdown("---")
+    st.markdown("""
+    <div class="footer">
+        <p>© 2024 Quiz O Mania. All rights reserved.</p>
+        <p>Made by <a href="https://github.com/agamdeepsingh" target="_blank"><strong>Agamdeep Singh</strong></a> with ❤️</p>
+        <p>Built with Streamlit</p>
+    </div>
+    """, unsafe_allow_html=True)
+
 
 def main():
     # 🌈 Page Config
@@ -145,6 +156,7 @@ def main():
 
     else:
         st.info("📄 Upload a PDF from the sidebar to begin.")
+        footer()
 
 
 if __name__ == "__main__":
