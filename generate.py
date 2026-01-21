@@ -160,6 +160,7 @@
 #         st.error(f"❌ Error generating MCQs: {e}")
 #         return None
 
+import os
 import re
 import json
 import streamlit as st
