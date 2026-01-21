@@ -168,7 +168,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain_groq import ChatGroq
 
 # ✅ Load API key safely
-groq_api_key = "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"
+groq_api_key = "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"
 
 # Initialize Groq LLM
 llm = ChatGroq(
