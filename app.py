@@ -7,17 +7,59 @@ from utils import extract_text_from_pdf
 
 st.markdown("""
 <style>
-    .stButton>button {
-        background-color: #6C63FF;
-        color: white;
-        border-radius: 10px;
-        padding: 10px 20px;
-    }
-    .stButton>button:hover {
-        background-color: #574FE0;
-    }
+
+/* 🌤 Main app background */
+.stApp {
+    background-color: #F6F8FC;
+}
+
+/* 🧭 Sidebar */
+section[data-testid="stSidebar"] {
+    background-color: #FFFFFF;
+    border-right: 1px solid #E5E7EB;
+}
+
+/* 📝 Titles */
+h1, h2, h3 {
+    color: #2C2F4A;
+}
+
+/* 📄 Question cards */
+div[data-testid="stVerticalBlock"] > div {
+    background-color: #FFFFFF;
+    padding: 18px;
+    border-radius: 14px;
+    margin-bottom: 16px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.04);
+}
+
+/* 🔘 Buttons */
+.stButton > button {
+    background-color: #6C63FF;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+.stButton > button:hover {
+    background-color: #5750EC;
+}
+
+/* 🎯 Radio buttons */
+.stRadio label {
+    font-size: 16px;
+    color: #374151;
+}
+
+/* 📦 Info / success boxes */
+.stAlert {
+    border-radius: 12px;
+}
+
 </style>
 """, unsafe_allow_html=True)
+
 
 def display_mcq(mcqs):
     st.title("Multiple Choice Questions")
