@@ -88,9 +88,8 @@ def footer():
     st.markdown("---")
     st.markdown("""
     <div class="footer">
-        <p>© 2024 Quiz O Mania. All rights reserved.</p>
-        <p>Made by <a href="https://github.com/agamdeepsingh" target="_blank"><strong>Agamdeep Singh</strong></a> with ❤️</p>
-        <p>Built with Streamlit</p>
+        <p>© 2026 Quiz-O-Mania. All rights reserved.</p>
+        <p>Made by <a href="https://github.com/agamdeepsingh" target="_blank"><strong>Agamdeep Singh</strong>
     </div>
     """, unsafe_allow_html=True)
 
@@ -128,7 +127,7 @@ def main():
     """)
 
     # 🖥 Main Area
-    st.markdown("# 🎓 Quiz O Mania")
+    st.markdown("# 🎓 Quiz-O-Mania")
     st.markdown("### Turn PDFs into interactive quizzes instantly")
 
     if uploaded_file is not None:
