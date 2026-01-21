@@ -53,12 +53,16 @@ GROQ_API_KEY = "your-groq-api-key-here"
 
 ### Screenshot
 1) Uploading the document
-   ![image](https://github.com/user-attachments/assets/76ee41f3-10ea-4871-9aa3-4e1884a0c09f)
+   <img width="1913" height="864" alt="Screenshot 2026-01-21 191938" src="https://github.com/user-attachments/assets/66c27a64-be0e-4fa4-b896-184d30faffaf" />
+
 2) Evaluates the quiz and shows the final score
-   ![image](https://github.com/user-attachments/assets/8bfde1ca-41c8-42f6-b010-240c367114e5)
-   ![image](https://github.com/user-attachments/assets/318dfc68-8aab-4d91-9d7b-ceff192cd41e)
+   <img width="1908" height="852" alt="Screenshot 2026-01-21 192153" src="https://github.com/user-attachments/assets/d070f32a-3d49-4cb0-be52-3ee9b9c0ab08" />
+
+   <img width="1904" height="850" alt="Screenshot 2026-01-21 192327" src="https://github.com/user-attachments/assets/19a3b246-e395-4b44-9ffc-014f1726d825" />
+
 3) Option to download for further revision
-   ![image](https://github.com/user-attachments/assets/43bab416-d00f-4c0b-baa2-c95014fd85be)
+   <img width="404" height="188" alt="Screenshot 2026-01-21 192220" src="https://github.com/user-attachments/assets/a82928d9-7328-4103-ab64-a04d4324fce2" />
+
 
 
 
@@ -87,7 +91,7 @@ GROQ_API_KEY = "your-groq-api-key-here"
 📤 python-docx
 
 ### 👩‍💻 Author
-Kashish Seth
-📧 Email: kseth9852@gmail.com
+Agamdeep Singh
+agamdeepsingh555@gmail.com
 
 For queries, support, or collaboration — feel free to reach out!
