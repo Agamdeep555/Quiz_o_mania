@@ -217,65 +217,7 @@ quiz-o-mania/
 
 ---
 
-## ⚙️ Configuration
 
-### Environment Variables
-```bash
-GROQ_API_KEY        # Required: Your Groq API key
-```
-
-### Customize Number of Questions
-
-Edit `app.py`:
-```python
-# Change this value to generate different number of questions
-NUM_QUESTIONS = 10
-```
-
-### Customize Difficulty Prompts
-
-Edit `generate.py`:
-```python
-DIFFICULTY_PROMPTS = {
-    "Easy": "Generate simple questions...",
-    "Medium": "Generate moderate questions...",
-    "Hard": "Generate challenging questions..."
-}
-```
-
----
-
-## 🐛 Troubleshooting
-
-### ❌ Issue: "API Key not found"
-**Solution:** 
-```bash
-# Make sure .streamlit/secrets.toml exists with:
-GROQ_API_KEY = "your-key-here"
-```
-
-### ❌ Issue: "Failed to generate MCQs"
-**Solution:** 
-- Ensure PDF has sufficient text content (>500 characters)
-- Verify API key is valid
-- Check internet connection
-- Try with a different PDF file
-
-### ❌ Issue: "PDF extraction failed"
-**Solution:**
-- Ensure PDF is not password-protected
-- Try a different PDF file
-- Check if file is not corrupted
-- Verify PDF contains text (not scanned images)
-
-### ❌ Issue: "Slow response time"
-**Solution:**
-- Groq API is optimized but may vary by load
-- Reduce number of questions
-- Check internet connection speed
-- Wait a moment and retry
-
----
 
 ## 📦 Requirements
 
@@ -303,62 +245,6 @@ pip install -r requirements.txt
 - ✅ Open-source and fully transparent
 - ✅ All processing happens on secure Groq servers
 
-### Important Security Notes
-```bash
-# Never commit secrets to git!
-# Add to .gitignore:
-.streamlit/secrets.toml
-
-# Keep your API key confidential
-# Use environment variables in production
-```
-
----
-
-## 🚀 Deployment
-
-### Deploy on Streamlit Cloud (Recommended)
-
-1. Push code to GitHub:
-```bash
-git push origin main
-```
-
-2. Visit [share.streamlit.io](https://share.streamlit.io)
-
-3. Click "New app" and connect your GitHub repository
-
-4. Add secrets in the app's Secrets section:
-```toml
-GROQ_API_KEY = "your-key-here"
-```
-
-5. Deploy with one click!
-
-### Deploy on Other Platforms
-
-**Railway:**
-```bash
-# Push to Railway
-railway up
-```
-
-**Heroku:**
-```bash
-# Deploy using Heroku CLI
-heroku create your-app-name
-git push heroku main
-```
-
-**Docker (Any Cloud):**
-```dockerfile
-FROM python:3.9-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-CMD ["streamlit", "run", "app.py"]
-```
 
 ---
 
@@ -374,45 +260,7 @@ CMD ["streamlit", "run", "app.py"]
 
 ---
 
-## 🤝 Contributing
 
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-```bash
-git fork https://github.com/agamdeepsingh/quiz-o-mania.git
-```
-
-2. Create a feature branch
-```bash
-git checkout -b feature/amazing-feature
-```
-
-3. Commit your changes
-```bash
-git commit -m 'Add amazing feature'
-```
-
-4. Push to the branch
-```bash
-git push origin feature/amazing-feature
-```
-
-5. Open a Pull Request
-
-### Development Setup
-```bash
-# Install with dev dependencies
-pip install -r requirements-dev.txt
-
-# Run tests
-pytest tests/
-
-# Format code
-black .
-```
-
----
 
 ## 📝 License
 
@@ -436,80 +284,12 @@ copies of the Software...
 
 ### Agamdeep Singh
 
-- 🔗 **GitHub:** [@agamdeepsingh](https://github.com/agamdeepsingh)
+- 🔗 **GitHub:** [@agamdeepsingh](https://github.com/Agamdeep555)
 - 📧 **Email:** [agamdeepsingh555@gmail.com](mailto:agamdeepsingh555@gmail.com)
-- 💼 **LinkedIn:** [Agamdeep Singh](https://linkedin.com/in/agamdeepsingh)
-- 🐦 **Twitter:** [@agamdeepsingh](https://twitter.com/agamdeepsingh)
+- 💼 **LinkedIn:** [Agamdeep Singh](https://www.linkedin.com/in/agamdeep-singh-9b87912b2/)
 
-### Get Help
-- 📧 **Email:** agamdeepsingh555@gmail.com
-- 🐛 **Report Bug:** [GitHub Issues](https://github.com/agamdeepsingh/quiz-o-mania/issues)
-- 💬 **Discuss:** [GitHub Discussions](https://github.com/agamdeepsingh/quiz-o-mania/discussions)
-- 📱 **Contact Form:** [Coming Soon]
 
----
 
-## ⭐ Show Your Support
-
-If you find Quiz O Mania helpful, please consider:
-
-- ⭐ **Star** this repository on GitHub
-- 🐛 **Report bugs** and **suggest features**
-- 📢 **Share** with friends and colleagues
-- 🤝 **Contribute** improvements
-- 💬 **Leave feedback** on discussions
-
----
-
-## 📚 Learning Resources
-
-- [Streamlit Documentation](https://docs.streamlit.io)
-- [LangChain Docs](https://python.langchain.com)
-- [Groq API Guide](https://console.groq.com/docs)
-- [Python-docx Tutorial](https://python-docx.readthedocs.io)
-- [PyPDF2 Documentation](https://pypdf.readthedocs.io)
-
----
-
-## 🎓 Related Projects
-
-- [PDF2Quiz](https://github.com/user/pdf2quiz) - Similar project
-- [QuizMaker](https://github.com/user/quizmaker) - Alternative solution
-- [LangChain Examples](https://github.com/langchain-ai/langchain) - Official examples
-
----
-
-## 📞 Feedback & Suggestions
-
-Your feedback helps us improve! Share your thoughts:
-
-- 🎯 **Feature Requests:** [GitHub Issues](https://github.com/agamdeepsingh/quiz-o-mania/issues)
-- 💡 **Suggestions:** [Discussions](https://github.com/agamdeepsingh/quiz-o-mania/discussions)
-- 🐛 **Bug Reports:** [Issues](https://github.com/agamdeepsingh/quiz-o-mania/issues)
-- 📧 **Direct Contact:** agamdeepsingh555@gmail.com
-
----
-
-## 🔄 Changelog
-
-### Version 1.0.0 (Current)
-- ✅ Initial release
-- ✅ PDF upload functionality
-- ✅ AI MCQ generation
-- ✅ Interactive quiz interface
-- ✅ DOCX export feature
-- ✅ Dark theme UI
-- ✅ Responsive design
-
-### Coming Soon
-- 🚀 Light theme support
-- 🚀 Multiple language support
-- 🚀 Image-based questions
-- 🚀 Performance analytics
-- 🚀 User authentication
-- 🚀 Question bank management
-
----
 
 ## ❓ FAQ
 
@@ -535,7 +315,7 @@ A: Yes! Follow the deployment instructions above.
 
 <div align="center">
 
-## 🌟 Made with ❤️ by [Agamdeep Singh](https://github.com/agamdeepsingh)
+## 🌟 Made with ❤️ by [Agamdeep Singh](https://github.com/Agamdeep555)
 
 ⭐ **If you found this helpful, please star the repository!** ⭐
 
