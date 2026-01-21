@@ -1,3 +1,10 @@
+
+
+import streamlit as st
+from generate import generate_mcqs
+from export import export_to_doc
+from utils import extract_text_from_pdf
+
 st.markdown("""
 <style>
     .stButton>button {
@@ -11,13 +18,6 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
-
-
-import streamlit as st
-from generate import generate_mcqs
-from export import export_to_doc
-from utils import extract_text_from_pdf
 
 def display_mcq(mcqs):
     st.title("Multiple Choice Questions")
