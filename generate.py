@@ -159,63 +159,75 @@
 #     except Exception as e:
 #         st.error(f"❌ Error generating MCQs: {e}")
 #         return None
-import os
+
 import re
 import json
 import streamlit as st
 from langchain_core.prompts import PromptTemplate
 from langchain_groq import ChatGroq
-from dotenv import load_dotenv
 
+# ✅ Load API key safely
 groq_api_key = "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"
-load_dotenv()
 
 # Initialize Groq LLM
 llm = ChatGroq(
     temperature=0.7,
     groq_api_key=groq_api_key,
-    model_name= "llama-3.1-8b-instant"
+    model_name="llama-3.1-8b-instant"
 )
 
-# Prompt Template
+# Prompt Template with Difficulty
 prompt_template = PromptTemplate(
-    input_variables=["text"],
+    input_variables=["text", "difficulty"],
     template="""
-Based on the following text, generate 10 multiple-choice questions (MCQs) with 4 options each. 
-Ensure that one option is correct and the others are plausible but incorrect.
-Also provide a short explanation for the correct answer.
-Format the output as a JSON array ONLY:
+You are an expert question setter.
+
+Generate 10 {difficulty}-level multiple-choice questions (MCQs) from the text below.
+Each question must have:
+- 4 options
+- 1 correct answer
+- Short explanation
+
+Difficulty guide:
+Easy → factual, definition-based
+Medium → conceptual, application-based
+Hard → analytical, tricky, inference-based
+
+Return ONLY valid JSON in this format:
 [
-    {{
-        "question": "...",
-        "choices": ["a) ...", "b) ...", "c) ...", "d) ..."],
-        "answer": "b) Correct option text",
-        "explanation": "Short explanation of the correct answer."
-    }},
-    ...
+  {{
+    "question": "...",
+    "choices": ["A", "B", "C", "D"],
+    "answer": "Correct option text",
+    "explanation": "Short explanation"
+  }}
 ]
-Text: {text}
+
+Text:
+{text}
 """
 )
 
-# Robust JSON extractor using regex
+# Robust JSON extractor
 def extract_json(text):
     try:
         match = re.search(r'\[\s*{.*?}\s*]', text, re.DOTALL)
         if not match:
-            raise ValueError("No valid JSON array found.")
-        json_text = match.group(0)
-        return json.loads(json_text)
+            raise ValueError("No valid JSON found")
+        return json.loads(match.group())
     except Exception as e:
-        st.error(f"⚠️ Failed to extract valid JSON: {e}")
+        st.error(f"⚠️ JSON parsing failed: {e}")
         return None
 
-# Main MCQ generation function
-def generate_mcqs(text):
+# ✅ MAIN FUNCTION (NOW MATCHES app.py)
+def generate_mcqs(text, difficulty):
     chain = prompt_template | llm
     try:
-        output = chain.invoke({"text": text})
-        return extract_json(output.content if hasattr(output, "content") else output)
+        output = chain.invoke({
+            "text": text,
+            "difficulty": difficulty
+        })
+        return extract_json(output.content)
     except Exception as e:
         st.error(f"❌ Error generating MCQs: {e}")
         return None
