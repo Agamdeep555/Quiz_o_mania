@@ -8,57 +8,93 @@ from utils import extract_text_from_pdf
 st.markdown("""
 <style>
 
-/* 🌤 Main app background */
+/* ===== GLOBAL ===== */
 .stApp {
-    background-color: #F6F8FC;
+    background-color: #F3F6FB;
+    color: #1F2937;
 }
 
-/* 🧭 Sidebar */
+/* ===== SIDEBAR ===== */
 section[data-testid="stSidebar"] {
     background-color: #FFFFFF;
     border-right: 1px solid #E5E7EB;
 }
 
-/* 📝 Titles */
-h1, h2, h3 {
-    color: #2C2F4A;
+/* ===== HEADINGS ===== */
+h1 {
+    color: #1E1B4B;
+    font-weight: 800;
 }
 
-/* 📄 Question cards */
+h2, h3 {
+    color: #312E81;
+    font-weight: 700;
+}
+
+/* ===== CARDS ===== */
 div[data-testid="stVerticalBlock"] > div {
     background-color: #FFFFFF;
-    padding: 18px;
-    border-radius: 14px;
-    margin-bottom: 16px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.04);
+    padding: 22px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.08);
+    border: 1px solid #E5E7EB;
 }
 
-/* 🔘 Buttons */
+/* ===== RADIO OPTIONS ===== */
+.stRadio label {
+    font-size: 16px;
+    color: #111827;
+    font-weight: 500;
+}
+
+/* ===== BUTTONS ===== */
 .stButton > button {
-    background-color: #6C63FF;
+    background: linear-gradient(135deg, #6366F1, #4F46E5);
     color: white;
-    border-radius: 10px;
-    padding: 10px 20px;
+    border-radius: 12px;
+    padding: 10px 22px;
     font-weight: 600;
+    border: none;
 }
 
 .stButton > button:hover {
-    background-color: #5750EC;
+    background: linear-gradient(135deg, #4F46E5, #4338CA);
 }
 
-/* 🎯 Radio buttons */
-.stRadio label {
-    font-size: 16px;
-    color: #374151;
+/* ===== SUCCESS BOX ===== */
+.stAlert.success {
+    background-color: #DCFCE7;
+    color: #065F46;
+    border-left: 6px solid #22C55E;
+    font-weight: 600;
 }
 
-/* 📦 Info / success boxes */
-.stAlert {
-    border-radius: 12px;
+/* ===== ERROR BOX ===== */
+.stAlert.error {
+    background-color: #FEE2E2;
+    color: #7F1D1D;
+    border-left: 6px solid #EF4444;
+}
+
+/* ===== INFO BOX ===== */
+.stAlert.info {
+    background-color: #DBEAFE;
+    color: #1E3A8A;
+    border-left: 6px solid #3B82F6;
+}
+
+/* ===== FILE UPLOADER ===== */
+.stFileUploader {
+    background-color: #FFFFFF;
+    border-radius: 14px;
+    padding: 12px;
+    border: 1px dashed #6366F1;
 }
 
 </style>
 """, unsafe_allow_html=True)
+
 
 
 def display_mcq(mcqs):
