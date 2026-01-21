@@ -1,19 +1,27 @@
 # 📚 Quiz-N-Learn: PDF-Based MCQ Generator
 
-**Quiz-N-Learn** is an AI-powered Streamlit web app that generates multiple-choice questions (MCQs) from any uploaded PDF document.  
+**Quiz-O-Mania** is an AI-powered Streamlit web app that generates multiple-choice questions (MCQs) from any uploaded PDF document.  
 It helps students, educators, and professionals quickly create quizzes and test their knowledge with AI-evaluated answers and explanations.
 
 ---
 
 ## ✨ Features
 
-✅ Upload any PDF (e.g., lecture notes, reports, health or legal docs)  
-✅ Automatically generate 5/10 MCQs with 4 options each  
-✅ Includes correct answer with explanations  
-✅ Interactive quiz interface with answer validation  
-✅ Final score display  
-✅ Export all questions + answers to a downloadable DOCX file  
-✅ Powered by **LangChain + Groq LLM (LLaMA3-70B)**
+🚀 Key Features
+
+✅ Upload any PDF (lecture notes, reports, research papers, etc.)
+✅ Generate AI-based MCQs directly from the document
+✅ Choose difficulty level: Easy / Medium / Hard
+✅ Each question includes:
+4 answer options
+Correct answer
+Short explanation
+✅ Interactive quiz interface
+✅ Automatic score calculation
+✅ Export MCQs to DOCX for offline revision
+✅ Light / Dark mode UI
+✅ Clean, modern, responsive design
+✅ Powered by **LangChain + Groq LLM**
 
 ---
 
