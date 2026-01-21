@@ -5,9 +5,7 @@ from export import export_to_doc
 from utils import extract_text_from_pdf
 
 def display_mcq(mcqs):
-    st.markdown("## 🧠 Quiz O Mania")
-    st.markdown("### Test your knowledge. Learn smarter. 🚀")
-    st.divider()
+    st.title("Multiple Choice Questions")
     
 
     # Ensure correct initialization of answer tracking
