@@ -89,7 +89,7 @@ def footer():
     st.markdown("""
     <div class="footer">
         <p>© 2026 Quiz-O-Mania. All rights reserved.</p>
-        <p>Made by <a href="https://github.com/agamdeepsingh" target="_blank"><strong>Agamdeep Singh</strong>
+        <p>Made by <a href="https://github.com/Agamdeep555" target="_blank"><strong>Agamdeep Singh</strong>
     </div>
     """, unsafe_allow_html=True)
 
