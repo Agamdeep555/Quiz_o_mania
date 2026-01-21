@@ -1,11 +1,9 @@
+
+
 import streamlit as st
 from generate import generate_mcqs
 from export import export_to_doc
 from utils import extract_text_from_pdf
-
-# ============================================
-# LOAD EXTERNAL CSS FILE
-# ============================================
 
 def load_css(file_path):
     """Load CSS from external file"""
@@ -25,6 +23,7 @@ load_css("app.css")
 def display_mcq(mcqs):
     st.title("Multiple Choice Questions")
     
+
     # Ensure correct initialization of answer tracking
     if 'user_answers' not in st.session_state or len(st.session_state.user_answers) != len(mcqs):
         st.session_state.user_answers = [None] * len(mcqs)
@@ -39,7 +38,7 @@ def display_mcq(mcqs):
         st.session_state.submitted = False
         st.rerun()
 
-    # Form with submit button inside
+    # 🔧 Form with submit button inside
     with st.form("mcq_form"):
         for idx, mcq in enumerate(mcqs):
             st.subheader(mcq['question'])
@@ -50,12 +49,12 @@ def display_mcq(mcqs):
                 key=f"q_{idx}"
             )
 
-        # Submit button placed inside the form block
+        # ✅ Submit button placed inside the form block
         submitted = st.form_submit_button("Submit All Answers")
         if submitted:
             st.session_state.submitted = True
 
-    # Evaluation
+    # 🧠 Evaluation
     if st.session_state.submitted:
         correct = 0
         for idx, mcq in enumerate(mcqs):
@@ -70,11 +69,11 @@ def display_mcq(mcqs):
 
             # Show explanation if present
             if "explanation" in mcq:
-                st.markdown(f"**Explanation:** {mcq['explanation']}")
+                st.markdown(f"**🧠 Explanation:** {mcq['explanation']}")
 
-        st.info(f"Final Score: {correct}/{len(mcqs)}")
+        st.info(f"🎯 Final Score: {correct}/{len(mcqs)}")
 
-    # Export option
+    # 📄 Export option
     if st.button("Export to DOC"):
         doc_buffer = export_to_doc(mcqs)
         st.download_button(
@@ -86,14 +85,14 @@ def display_mcq(mcqs):
 
 
 def main():
-    # Page Config
+    # 🌈 Page Config
     st.set_page_config(
         page_title="Quiz O Mania",
         page_icon="🧠",
         layout="wide"
     )
 
-    # Sidebar UI
+    # 🎯 Sidebar UI
     st.sidebar.markdown("## 🎯 Quiz-O-Mania")
     st.sidebar.caption("AI-powered MCQ Generator from PDFs")
 
@@ -117,7 +116,7 @@ def main():
     5. Export questions  
     """)
 
-    # Main Area
+    # 🖥 Main Area
     st.markdown("# 🎓 Quiz O Mania")
     st.markdown("### Turn PDFs into interactive quizzes instantly")
 
