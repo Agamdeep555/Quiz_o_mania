@@ -1,3 +1,18 @@
+st.markdown("""
+<style>
+    .stButton>button {
+        background-color: #6C63FF;
+        color: white;
+        border-radius: 10px;
+        padding: 10px 20px;
+    }
+    .stButton>button:hover {
+        background-color: #574FE0;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+
 
 import streamlit as st
 from generate import generate_mcqs
