@@ -68,25 +68,48 @@ def display_mcq(mcqs):
 
 
 def main():
-    st.sidebar.title("Quiz-N-learn")
-    st.sidebar.write("This Web app displays multiple-choice questions generated from PDF.")
+    # 🌈 Page Config
+    st.set_page_config(
+        page_title="Quiz O Mania",
+        page_icon="🧠",
+        layout="wide"
+    )
 
-    uploaded_file = st.sidebar.file_uploader("Choose a PDF file", type="pdf")
+    # 🎯 Sidebar UI
+    st.sidebar.markdown("## 🎯 Quiz-O-Mania")
+    st.sidebar.caption("AI-powered MCQ Generator from PDFs")
 
-    # 🔽 NEW: Difficulty Selector
+    uploaded_file = st.sidebar.file_uploader(
+        "📄 Upload a PDF",
+        type="pdf"
+    )
+
     difficulty = st.sidebar.selectbox(
-        "Select Difficulty Level",
+        "🎚 Select Difficulty Level",
         ["Easy", "Medium", "Hard"]
     )
+
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("💡 **How it works**")
+    st.sidebar.markdown("""
+    1. Upload a PDF  
+    2. Choose difficulty  
+    3. Attempt MCQs  
+    4. Check score  
+    5. Export questions  
+    """)
+
+    # 🖥 Main Area
+    st.markdown("# 🎓 Quiz O Mania")
+    st.markdown("### Turn PDFs into interactive quizzes instantly")
 
     if uploaded_file is not None:
         pdf_text = extract_text_from_pdf(uploaded_file)
 
-        if st.sidebar.button("Generate New Questions"):
+        if st.sidebar.button("🚀 Generate New Questions"):
             st.session_state.pop('mcqs', None)
-            st.session_state.user_answers = [None] * 5
+            st.session_state.user_answers = []
             st.session_state.submitted = False
-            st.session_state.difficulty = difficulty
 
             for idx in range(10):
                 st.session_state.pop(f"q_{idx}", None)
@@ -94,16 +117,18 @@ def main():
             st.rerun()
 
         if 'mcqs' not in st.session_state:
-            with st.spinner('Generating MCQs...'):
+            with st.spinner("🤖 Generating intelligent MCQs..."):
                 st.session_state.mcqs = generate_mcqs(pdf_text, difficulty)
 
         if st.session_state.mcqs:
-            st.sidebar.success(f"MCQs generated successfully! ({difficulty})")
+            st.success(f"✅ MCQs generated successfully — **{difficulty} Level**")
             display_mcq(st.session_state.mcqs)
         else:
-            st.sidebar.error("Failed to generate MCQs.")
+            st.error("❌ Failed to generate MCQs. Try another PDF.")
+
     else:
-        st.sidebar.info("Upload a PDF to generate MCQs.")
+        st.info("📄 Upload a PDF from the sidebar to begin.")
+
 
 if __name__ == "__main__":
     main()
