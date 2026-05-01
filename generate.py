@@ -230,7 +230,7 @@ def extract_json(text):
 
 # ✅ MAIN FUNCTION (NOW MATCHES app.py)
 def generate_mcqs(text, difficulty):
-    text = text[:3000]
+    text = text[:12000]
     chain = prompt_template | llm
     try:
         output = chain.invoke({
