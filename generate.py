@@ -210,12 +210,20 @@ Text:
 )
 
 # Robust JSON extractor
+# def extract_json(text):
+#     try:
+#         match = re.search(r'\[\s*{.*?}\s*]', text, re.DOTALL)
+#         if not match:
+#             raise ValueError("No valid JSON found")
+#         return json.loads(match.group())
+#     except Exception as e:
+#         st.error(f"⚠️ JSON parsing failed: {e}")
+#         return None
 def extract_json(text):
     try:
-        match = re.search(r'\[\s*{.*?}\s*]', text, re.DOTALL)
-        if not match:
-            raise ValueError("No valid JSON found")
-        return json.loads(match.group())
+        start = text.index('[')
+        end = text.rindex(']') + 1
+        return json.loads(text[start:end])
     except Exception as e:
         st.error(f"⚠️ JSON parsing failed: {e}")
         return None
